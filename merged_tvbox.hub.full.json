@@ -1676,22 +1676,6 @@
       "api": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/jxf.py"
     },
     {
-      "key": "剧圈",
-      "name": "♨️剧圈｜4K线路",
-      "type": 3,
-      "api": "csp_App99",
-      "ext": {
-        "host": "http://124.221.3.182:19987/app/bn",
-        "appkey": "wWôsn½y¦ûáßwóm_}÷=mçÝm¶Ú",
-        "versionName": "1.2.0",
-        "name": "剧圈圈",
-        "package": "com.qingtangxiaozhuan.xyz",
-        "buildNumber": "2002",
-        "buildSignature": "Ó\u0005\u0003ÀÃ\u0003õô.è\u000fA÷\u0002\u0003ûï5\u000bßw\u0017M\u0001Ô\u001d\u0001\u000fýà^Ä\fN<×Î\u0002ãx"
-      },
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
-    },
-    {
       "name": "♨️粉猪｜4K线路",
       "key": "AppV7Fz",
       "type": 3,
@@ -1720,32 +1704,6 @@
       "name": "♨️高清｜4K线路",
       "type": 3,
       "api": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/gq.js"
-    },
-    {
-      "key": "咕噜",
-      "name": "♨️咕噜｜4K线路",
-      "type": 3,
-      "api": "csp_Gulu",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
-    },
-    {
-      "key": "蓝鸟",
-      "name": "♨️蓝鸟｜4K线路",
-      "type": 3,
-      "api": "csp_AppQi",
-      "searchable": 1,
-      "changeable": 1,
-      "ext": {
-        "site": "https://lanyingjisu.oss-cn-wuhan-lr.aliyuncs.com/lyjszx.txt",
-        "dataKey": "oW5UxZ5kWVr1DI69",
-        "dataIv": "oW5UxZ5kWVr1DI69",
-        "init": "initV122",
-        "ua": "okhttp/3.10.0"
-      },
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
     },
     {
       "key": "妙看",
