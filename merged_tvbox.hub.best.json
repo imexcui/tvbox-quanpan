@@ -1508,13 +1508,6 @@
       "api": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/4kvms.py"
     },
     {
-      "key": "移动",
-      "name": "🌀移动｜1920",
-      "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
-      "ext": "{\"url\": \"https://vidsite.cloudseekr.com\", \"mode\": \"cms\"}"
-    },
-    {
       "key": "KanJu",
       "name": "🎬┆流映┆4K",
       "type": 3,
