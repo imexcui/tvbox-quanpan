@@ -1330,6 +1330,15 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
+    },
+    {
+      "key": "GuanYingYuanPanKw",
+      "name": "🎬观影原盘·夸克",
+      "type": 3,
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_spider.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
     }
   ],
   "parses": [
