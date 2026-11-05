@@ -1388,15 +1388,13 @@
       "name": "🔥┃小胡┃4K",
       "type": 1,
       "playerType": 1,
-      "api": "http://xh1.xn--yetu07f.icu/api.php/provide/vod/",
-      "jar": "http://xiaohu.xzam.cn/jar/1.jar"
+      "api": "http://xh1.xn--yetu07f.icu/api.php/provide/vod/"
     },
     {
       "key": "熊掌",
       "name": "🐻┃熊掌┃高清",
       "type": 1,
-      "api": "https://xzcjz.com/api.php/provide/vod",
-      "jar": "https://tvbox.cainisi.cf/jar/fty0101.jar;md5;fd784008ab71d81a178564841059756d"
+      "api": "https://xzcjz.com/api.php/provide/vod"
     },
     {
       "key": "gszy",
