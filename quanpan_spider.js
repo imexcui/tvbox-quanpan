@@ -381,7 +381,13 @@ function qpFetchToken(context) {
     json = JSON.parse(typeof res.data === "string" ? res.data : JSON.stringify(res.data || ""));
   } catch (_) {}
 
+  if (typeof console !== "undefined" && console.log) {
+    console.log("[quanpan] token HTTP=" + status + " ok=" + (!!(json && json.data && json.data.token)));
+  }
   if (status >= 400 || !json || !json.data || !json.data.token) {
+    if (typeof console !== "undefined" && console.log) {
+      console.log("[quanpan] token error body=" + String(res.data || "").slice(0, 240));
+    }
     throw new Error("全盘搜索令牌获取失败（HTTP " + status + "）");
   }
   var ttlMs = Number(json.data.ttl_ms || 0);
@@ -419,6 +425,9 @@ function qpApi(context, method, path, body) {
       res = $http.get(site + path, { headers: headers, timeout: 20000, responseType: "text" });
     }
     var status = Number(res.status || 0);
+    if (typeof console !== "undefined" && console.log) {
+      console.log("[quanpan] " + method + " " + path + " HTTP=" + status + " tokenLen=" + String(token || "").length);
+    }
     if (status === 403 && attempt === 0) {
       token = qpToken(context, true);
       continue;
@@ -429,6 +438,9 @@ function qpApi(context, method, path, body) {
     } catch (_) {}
     if (status >= 400) throw new Error("全盘搜索接口 HTTP " + status + "（" + path + "）");
     if (!json || (json.code !== undefined && Number(json.code) !== 0)) {
+      if (typeof console !== "undefined" && console.log) {
+        console.log("[quanpan] resp code=" + (json && json.code) + " msg=" + (json && json.message));
+      }
       throw new Error("全盘搜索接口返回异常（" + path + "）" + (json && json.message ? "：" + json.message : ""));
     }
     return json.data;
