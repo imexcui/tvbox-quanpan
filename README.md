@@ -7,7 +7,7 @@
 - `source_hawk.js` —— 原始 Hawk 模块（全盘搜.js），转换源
 - `build.py` —— 转换 + 合并脚本（在线抓取最新 aiwex，重生成 spider 与 config）
 - `quanpan_spider.js` —— 生成的 CatVod JS 蜘蛛（TVBox 远程加载）
-- `merged_tvbox.json` —— 多源聚合 TVBox 配置（311 个站点，已去重并按画质/速度/夸克排序；QuanPan4K 的 `api` 已指向下方 jsDelivr 蜘蛛链接，需替换 `tlwj01/tvbox-quanpan`）
+- `merged_tvbox.json` —— 多源聚合 TVBox 配置（精选 102 条线路（按名字模糊去重），已去重并按画质/速度/夸克排序；QuanPan4K 的 `api` 已指向下方 jsDelivr 蜘蛛链接，需替换 `tlwj01/tvbox-quanpan`）
 - `aiwex_quanpan.json` —— 轻量自动更新版配置（99 站点，仅依赖 aiwex，可由 GitHub Actions 每日自更新）
 - `.github/workflows/update.yml` —— 每日 04:00（北京）自动重抓 aiwex 并重新发布（更新 `aiwex_quanpan.json`）
 
@@ -27,7 +27,7 @@
 ## TVBox / 影视仓 配置地址
 spider 与 config 均通过 jsDelivr（免鉴权、URL 以 `.js` 结尾，TVBox 可正确识别为 JS 蜘蛛）：
 
-- **全网多源聚合配置（推荐，311 站点）— 粘到「配置地址」：**
+- **全网多源聚合配置（推荐，102 条线路）— 粘到「配置地址」：**
   ```
   https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan/merged_tvbox.json
   ```
