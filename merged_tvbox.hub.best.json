@@ -1492,16 +1492,6 @@
       "api": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/gq.js"
     },
     {
-      "key": "咕噜",
-      "name": "♨️咕噜｜4K线路",
-      "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "{\"url\": \"http://111.170.58.215:4470\", \"mode\": \"cms\"}"
-    },
-    {
       "key": "妙看",
       "name": "🌀妙看｜1920",
       "type": 3,
