@@ -1321,6 +1321,15 @@
       "type": 3,
       "api": "http://rihou.vip:55/lib/drpy2.min.js",
       "ext": "http://rihou.vip:55/lib/jianpian.js"
+    },
+    {
+      "key": "PanSouJS",
+      "name": "🧲盘搜┃JS(PanSou)",
+      "type": 3,
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/pansou_spider.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
     }
   ],
   "parses": [
