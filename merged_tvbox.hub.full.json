@@ -1676,27 +1676,6 @@
       "api": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/jxf.py"
     },
     {
-      "key": "橘汁",
-      "name": "♨️橘汁｜4K线路",
-      "type": 3,
-      "api": "csp_AppDrama",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": {
-        "appName": "橘汁",
-        "publicKey": "00\r\u0006\t*H÷\r\u0001\u0001\u0001\u0005\u0000\u0003\u00000\u0002\u0000«ñ,Ù62ú»2kR´öß\u001dØ®t¥ah\u0006H\u0014¨ÊJ:%¾Ü\u0015)Þ\u001eMÛàõ\u0014\u000f6*Ké\u001fAÉ«KU|³Õ\u000f\bÐmKX3Ï\u000bÑó×ªîºCêm\u001dÚúô÷õ)Y\u000en;/OGD\u0013®È¨½æ~\f½ÍÂû0B»ù\u0019IÑòËp&¢¶H·\u0002\u0003\u0001\u0000\u0001",
-        "dataKey": "9mV\u0004±Y\b²tY3I@ÄRg`ØHcA==",
-        "dataIv": "8-@Ó¡5÷±\u0005×@Ü^´çÀì\u000f4Ü\u001eD",
-        "pkg": "com.mxj.wylcjbxyx",
-        "host": "",
-        "site": "https://123-1349250429.cos.ap-shanghai.myqcloud.com/app.txt",
-        "version": "3.0.2.4",
-        "decrypt": "1"
-      },
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
-    },
-    {
       "key": "剧圈",
       "name": "♨️剧圈｜4K线路",
       "type": 3,
@@ -1737,22 +1716,6 @@
       "ext": "AppV7Mtq"
     },
     {
-      "key": "半日99",
-      "name": "♨️半日｜4K线路",
-      "type": 3,
-      "api": "csp_App99",
-      "ext": {
-        "host": "http://103.217.190.91:19987/app/bn",
-        "appkey": "ÛzÛ¼ko[ã½4kV¶÷:vöõí",
-        "versionName": "3.5.8",
-        "name": "半日闲",
-        "package": "com.yf.lelian",
-        "buildNumber": "2001",
-        "buildSignature": "\u0003\u0003\u0003Í\u0000çÐõï@\u0003Þt\b]y\u000b_\u0002ã\u0003ã°7ô\u001dº÷ÏCð\u001e¸Ð@ïA\u0003½A\u0017Â"
-      },
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
-    },
-    {
       "key": "高清点播",
       "name": "♨️高清｜4K线路",
       "type": 3,
@@ -1766,22 +1729,6 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
-    },
-    {
-      "key": "蓝鹰",
-      "name": "♨️蓝鹰｜4K线路",
-      "type": 3,
-      "api": "csp_AppQi",
-      "searchable": 1,
-      "changeable": 1,
-      "ext": {
-        "url": "http://103.217.190.91:5566",
-        "dataKey": "hagYExMdMkeWfemK",
-        "dataIv": "hagYExMdMkeWfemK",
-        "init": "initV122",
-        "ua": "okhttp/3.10.0"
-      },
       "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
     },
     {
@@ -1805,13 +1752,6 @@
       "name": "🌀妙看｜1920",
       "type": 3,
       "api": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/4kvms.py"
-    },
-    {
-      "key": "移动",
-      "name": "🌀移动｜1920",
-      "type": 3,
-      "api": "csp_Yidong4K",
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
     },
     {
       "key": "bl·Fish1",
@@ -2193,25 +2133,6 @@
       "filterable": 1,
       "ext": "AfCX4sFyDgfHnSLJWpjt1MhGM5IXEedNZfnttre6SML2iKsHtTs9bImgNSCyhOVdiFfFQEtkTtLKBE1jHKB54K5If+HC5ogqbIKmQp/pC3aY",
       "jar": "https://qiniu.gongxueyun.com/upload/1642674/2026-11-03/leave/862321224_2_1793729323718.jar;md5;c78599dab489dae65c893e121df0de2f"
-    },
-    {
-      "key": "哔哩合集",
-      "name": "🅱哔哩｜合集",
-      "type": 3,
-      "api": "csp_Bili",
-      "searchable": 1,
-      "quickSearch": 0,
-      "filterable": 0,
-      "changeable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.433
-      },
-      "ext": {
-        "json": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/哔哩合集.png",
-        "cookie": "https://gh-proxy.com/raw.githubusercontent.com/IY-CPU/IY/main/lib/blc.png"
-      },
-      "jar": "https://meow.668yun.top/c/rEkDf4vxeobu/yi.jar"
     },
     {
       "key": "酷奇MV",
