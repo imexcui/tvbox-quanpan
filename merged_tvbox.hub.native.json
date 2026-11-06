@@ -1000,7 +1000,7 @@
       "key": "QuanPan4K",
       "name": "🌸全盘搜｜夸克4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_spider.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
@@ -1009,7 +1009,7 @@
       "key": "Wogg",
       "name": "👽️┆玩偶┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "filterable": 1,
       "ext": "{\"url\": \"https://wogg.xxooo.cf\", \"mode\": \"cms\"}"
@@ -1018,7 +1018,7 @@
       "key": "FishMuou",
       "name": "🪵┆木偶┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://www.muoua.top\", \"mode\": \"cms\"}"
     },
@@ -1026,7 +1026,7 @@
       "key": "Libvio",
       "name": "📺┆立播┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://libviofabu.com\", \"mode\": \"cms\"}"
     },
@@ -1034,7 +1034,7 @@
       "key": "SeedHub",
       "name": "🌱┆Seed┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://sidhub.cc\", \"mode\": \"cms\"}"
     },
@@ -1042,7 +1042,7 @@
       "key": "PanWebShare123",
       "name": "😎┆123┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -1052,7 +1052,7 @@
       "key": "PanWebShareGuangYa",
       "name": "😉┆光鸭┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -1062,7 +1062,7 @@
       "key": "WoNiu",
       "name": "🐌┆蜗牛┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://wn4k.com\", \"mode\": \"cms\"}"
     },
@@ -1070,7 +1070,7 @@
       "key": "Qiwei",
       "name": "🌈┆七味┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "filterable": 0,
       "ext": "{\"url\": \"https://www.qwnull.com\", \"mode\": \"cms\"}"
@@ -1079,7 +1079,7 @@
       "key": "gying",
       "name": "👀┆观影┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "quickSearch": 0,
       "filterable": 0,
@@ -1089,7 +1089,7 @@
       "key": "FishDuoduo",
       "name": "🍀┆多多┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://tv.yydsys.top\", \"mode\": \"cms\"}"
     },
@@ -1097,7 +1097,7 @@
       "key": "Fishhuajuan",
       "name": "🌸┆花卷┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://www.hjzhencai.top\", \"mode\": \"cms\"}"
     },
@@ -1105,7 +1105,7 @@
       "key": "FishHuban",
       "name": "🐅┆虎斑┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"http://xhban.xyz\", \"mode\": \"cms\"}"
     },
@@ -1113,7 +1113,7 @@
       "key": "Fishgege",
       "name": "💫┆八零┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://woog.nxog.eu.org\", \"mode\": \"cms\"}"
     },
@@ -1121,7 +1121,7 @@
       "key": "ShuangXing",
       "name": "🌟┆双星┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "quickSearch": 1,
       "ext": "{\"url\": \"https://1.star2.cn\", \"mode\": \"cms\"}"
@@ -1161,7 +1161,7 @@
       "key": "KanJu",
       "name": "🎬┆流映┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -1171,7 +1171,7 @@
       "key": "Fishshayang",
       "name": "🤭┆傻样┆4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"http://xsayang.fun\", \"mode\": \"cms\"}"
     },
@@ -1193,7 +1193,7 @@
       "key": "csp_SixV·Candy1",
       "name": "💕┃磁力┃4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://www.6vdy.org\", \"mode\": \"cms\"}"
     },
@@ -1271,14 +1271,14 @@
       "name": "🔍米搜｜搜索",
       "type": 3,
       "hide": 1,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "ext": "{\"url\": \"http://gesoso.fun\", \"mode\": \"cms\"}"
     },
     {
       "key": "百酷",
       "name": "🔍百酷｜搜索",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "hide": 1,
       "ext": "{\"url\": \"https://api.kuleu.com\", \"mode\": \"cms\"}"
     },
@@ -1287,7 +1287,7 @@
       "name": "🔍鬼鬼｜搜索",
       "type": 3,
       "hide": 1,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "ext": "{\"url\": \"https://api.guiguiya.com\", \"mode\": \"cms\"}"
     },
     {
@@ -1295,14 +1295,14 @@
       "name": "🔍趣盘｜搜索",
       "type": 3,
       "hide": 1,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "ext": "{\"url\": \"https://b.funletu.com\", \"mode\": \"cms\"}"
     },
     {
       "key": "JSo",
       "name": "🐾┆珈珈┆搜索",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "ext": "{\"url\": \"https://j-so.com\", \"mode\": \"cms\"}"
     },
@@ -1310,7 +1310,7 @@
       "key": "Tiu6",
       "name": "🍭┆Tiu6┆搜索",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_csp.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_csp.js",
       "searchable": 1,
       "filterable": 1,
       "ext": "{\"url\": \"https://www.tiu6.cn\", \"mode\": \"cms\"}"
@@ -1326,7 +1326,7 @@
       "key": "PanSouJS",
       "name": "🧲盘搜┃JS(PanSou)",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/pansou_spider.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/pansou_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
@@ -1335,7 +1335,7 @@
       "key": "BuErChen",
       "name": "🔍不二┃资源",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/buerchen_spider.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/buerchen_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
@@ -1344,7 +1344,7 @@
       "key": "GuanYingYuanPanKw",
       "name": "🎬观影原盘·夸克",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_spider.js",
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
