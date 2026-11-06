@@ -1000,7 +1000,7 @@
       "key": "QuanPan4K",
       "name": "🌸全盘搜｜夸克4K",
       "type": 3,
-      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_spider.js",
+      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
@@ -1326,7 +1326,16 @@
       "key": "PanSouJS",
       "name": "🧲盘搜┃JS(PanSou)",
       "type": 3,
-      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/pansou_spider.js",
+      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/pansou_spider.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "BuErChen",
+      "name": "🔍不二┃资源",
+      "type": 3,
+      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/buerchen_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
@@ -1335,7 +1344,7 @@
       "key": "GuanYingYuanPanKw",
       "name": "🎬观影原盘·夸克",
       "type": 3,
-      "api": "https://ghproxy.net/https://raw.githubusercontent.com/tlwj01/tvbox-quanpan/main/quanpan_spider.js",
+      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
