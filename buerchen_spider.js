@@ -133,11 +133,13 @@ function __vodId(url) { return "brc_" + encodeURIComponent(url); }
 function __isHttp(s) { return /^https?:\/\//i.test(s || ""); }
 
 function home() {
-    return JSON.stringify({ list: [] });
+    return JSON.stringify({ "class": [], "content": 1, "list": [] });
 }
 
 function homeVod() { return home(); }
-function category() { return JSON.stringify({}); }
+function category(tid, pg, filter, extend) {
+    return JSON.stringify({ "list": [], "page": Number(pg || 1), "pagecount": 1, "limit": 20, "total": 0 });
+}
 
 function search(kw, quick) {
     var list = [], seen = {}, n = 0;
