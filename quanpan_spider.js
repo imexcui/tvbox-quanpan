@@ -368,50 +368,47 @@ function syncQuarkCookie(resHeaders, baseCookie) {
 
 // ---------- 3. 全盘搜索后端（PanSou）业务逻辑 ----------
 
-// 与浏览器一致：x-qp-k = 毫秒时间戳 + "." + 8 字节随机十六进制
-// HAR 实测：整个会话从未调用 /api/auth/token，服务端仅校验该头存在且时间戳未过期
-function genQpToken() {
-  var ts = (typeof Date !== "undefined" && Date.now) ? Date.now() : 0;
-  var hex = "0123456789abcdef";
-  var rnd = "";
-  for (var i = 0; i < 16; i++) rnd += hex[Math.floor(Math.random() * 16)];
-  return String(ts) + "." + rnd;
-}
-
+// 重要：x-qp-k 必须是服务端下发的令牌（GET /api/auth/token）。
+// HAR 实测：浏览器在页面加载时取该令牌后复用，沙箱实测客户端自制 token 会被服务端 403 拒绝。
 function qpFetchToken(context) {
   var site = getHost(context);
-  // 优先尝试服务端令牌；Hub 运行环境若无法访问该接口，则回退到客户端生成（与浏览器请求头完全一致）
-  try {
-    var res = $http.get(site + "/api/auth/token", {
-      headers: { "User-Agent": UA, Referer: site + "/" },
-      timeout: 8000,
-      responseType: "text"
-    });
-    var status = Number(res.status || 0);
-    var json = null;
+  var lastStatus = 0, lastErr = "";
+  for (var attempt = 0; attempt < 2; attempt++) {
     try {
-      json = JSON.parse(typeof res.data === "string" ? res.data : JSON.stringify(res.data || ""));
-    } catch (_) {}
-    if (typeof console !== "undefined" && console.log) {
-      console.log("[quanpan] server token HTTP=" + status + " ok=" + (!!(json && json.data && json.data.token)));
+      var res = $http.get(site + "/api/auth/token", {
+        headers: { "User-Agent": UA, Referer: site + "/" },
+        timeout: 10000,
+        responseType: "text"
+      });
+      var status = Number(res.status || 0);
+      lastStatus = status;
+      var json = null;
+      try {
+        json = JSON.parse(typeof res.data === "string" ? res.data : JSON.stringify(res.data || ""));
+      } catch (_) {}
+      if (typeof console !== "undefined" && console.log) {
+        console.log("[quanpan] token HTTP=" + status + " ok=" + (!!(json && json.data && json.data.token)) + " try=" + attempt);
+      }
+      if (status < 400 && json && json.data && json.data.token) {
+        var ttlMs = Number(json.data.ttl_ms || 0);
+        var ttlSec = ttlMs > 0 ? Math.floor(ttlMs * 0.8 / 1000) : 600;
+        if (ttlSec > 900) ttlSec = 900;
+        if (ttlSec < 30) ttlSec = 30;
+        var rec = { token: String(json.data.token), expires: Date.now() + ttlSec * 1000 };
+        $cache.set("qpTokenCache", rec, { ttl: ttlSec });
+        return rec.token;
+      }
+    } catch (e) {
+      lastErr = String(e && e.message || e);
+      if (typeof console !== "undefined" && console.log) {
+        console.log("[quanpan] token request error: " + lastErr + " try=" + attempt);
+      }
     }
-    if (status < 400 && json && json.data && json.data.token) {
-      var ttlMs = Number(json.data.ttl_ms || 0);
-      var ttlSec = ttlMs > 0 ? Math.floor(ttlMs * 0.8 / 1000) : 600;
-      if (ttlSec > 900) ttlSec = 900;
-      if (ttlSec < 30) ttlSec = 30;
-      var rec = { token: String(json.data.token), expires: Date.now() + ttlSec * 1000, src: "server" };
-      $cache.set("qpTokenCache", rec, { ttl: ttlSec });
-      return rec.token;
-    }
-  } catch (_) {}
-  // 回退：客户端生成，保证在 Hub 环境拿不到服务端令牌时仍可正常搜索
-  var t = genQpToken();
-  $cache.set("qpTokenCache", { token: t, expires: Date.now() + 600000, src: "client" }, { ttl: 600 });
-  if (typeof console !== "undefined" && console.log) {
-    console.log("[quanpan] token fallback -> client generated");
   }
-  return t;
+  if (typeof console !== "undefined" && console.log) {
+    console.log("[quanpan] !! 无法获取服务端令牌 (lastHTTP=" + lastStatus + " err=" + lastErr + ")，搜索将被服务端 403 拒绝");
+  }
+  return "";
 }
 
 function qpToken(context, force) {
@@ -428,7 +425,7 @@ function qpApi(context, method, path, body) {
   var site = getHost(context);
   var token = qpToken(context, false);
   for (var attempt = 0; attempt < 2; attempt++) {
-    var headers = { "User-Agent": UA, Referer: site + "/", "X-QP-K": token };
+    var headers = { "User-Agent": UA, Referer: site + "/", "x-qp-k": token };
     var res;
     if (method === "POST") {
       res = $http.post(site + path, JSON.stringify(body || {}), {
