@@ -368,47 +368,29 @@ function syncQuarkCookie(resHeaders, baseCookie) {
 
 // ---------- 3. 全盘搜索后端（PanSou）业务逻辑 ----------
 
-// 重要：x-qp-k 必须是服务端下发的令牌（GET /api/auth/token）。
-// HAR 实测：浏览器在页面加载时取该令牌后复用，沙箱实测客户端自制 token 会被服务端 403 拒绝。
 function qpFetchToken(context) {
   var site = getHost(context);
-  var lastStatus = 0, lastErr = "";
-  for (var attempt = 0; attempt < 2; attempt++) {
-    try {
-      var res = $http.get(site + "/api/auth/token", {
-        headers: { "User-Agent": UA, Referer: site + "/" },
-        timeout: 10000,
-        responseType: "text"
-      });
-      var status = Number(res.status || 0);
-      lastStatus = status;
-      var json = null;
-      try {
-        json = JSON.parse(typeof res.data === "string" ? res.data : JSON.stringify(res.data || ""));
-      } catch (_) {}
-      if (typeof console !== "undefined" && console.log) {
-        console.log("[quanpan] token HTTP=" + status + " ok=" + (!!(json && json.data && json.data.token)) + " try=" + attempt);
-      }
-      if (status < 400 && json && json.data && json.data.token) {
-        var ttlMs = Number(json.data.ttl_ms || 0);
-        var ttlSec = ttlMs > 0 ? Math.floor(ttlMs * 0.8 / 1000) : 600;
-        if (ttlSec > 900) ttlSec = 900;
-        if (ttlSec < 30) ttlSec = 30;
-        var rec = { token: String(json.data.token), expires: Date.now() + ttlSec * 1000 };
-        $cache.set("qpTokenCache", rec, { ttl: ttlSec });
-        return rec.token;
-      }
-    } catch (e) {
-      lastErr = String(e && e.message || e);
-      if (typeof console !== "undefined" && console.log) {
-        console.log("[quanpan] token request error: " + lastErr + " try=" + attempt);
-      }
-    }
+  var res = $http.get(site + "/api/auth/token", {
+    headers: { "User-Agent": UA, Referer: site + "/" },
+    timeout: 15000,
+    responseType: "text"
+  });
+  var status = Number(res.status || 0);
+  var json = null;
+  try {
+    json = JSON.parse(typeof res.data === "string" ? res.data : JSON.stringify(res.data || ""));
+  } catch (_) {}
+
+  if (status >= 400 || !json || !json.data || !json.data.token) {
+    throw new Error("全盘搜索令牌获取失败（HTTP " + status + "）");
   }
-  if (typeof console !== "undefined" && console.log) {
-    console.log("[quanpan] !! 无法获取服务端令牌 (lastHTTP=" + lastStatus + " err=" + lastErr + ")，搜索将被服务端 403 拒绝");
-  }
-  return "";
+  var ttlMs = Number(json.data.ttl_ms || 0);
+  var ttlSec = ttlMs > 0 ? Math.floor(ttlMs * 0.8 / 1000) : 600;
+  if (ttlSec > 900) ttlSec = 900;
+  if (ttlSec < 30) ttlSec = 30;
+  var rec = { token: String(json.data.token), expires: Date.now() + ttlSec * 1000 };
+  $cache.set("qpTokenCache", rec, { ttl: ttlSec });
+  return rec.token;
 }
 
 function qpToken(context, force) {
@@ -425,7 +407,7 @@ function qpApi(context, method, path, body) {
   var site = getHost(context);
   var token = qpToken(context, false);
   for (var attempt = 0; attempt < 2; attempt++) {
-    var headers = { "User-Agent": UA, Referer: site + "/", "x-qp-k": token };
+    var headers = { "User-Agent": UA, Referer: site + "/", "X-QP-K": token };
     var res;
     if (method === "POST") {
       res = $http.post(site + path, JSON.stringify(body || {}), {
@@ -437,9 +419,6 @@ function qpApi(context, method, path, body) {
       res = $http.get(site + path, { headers: headers, timeout: 20000, responseType: "text" });
     }
     var status = Number(res.status || 0);
-    if (typeof console !== "undefined" && console.log) {
-      console.log("[quanpan] " + method + " " + path + " HTTP=" + status + " tokenLen=" + String(token || "").length);
-    }
     if (status === 403 && attempt === 0) {
       token = qpToken(context, true);
       continue;
@@ -450,9 +429,6 @@ function qpApi(context, method, path, body) {
     } catch (_) {}
     if (status >= 400) throw new Error("全盘搜索接口 HTTP " + status + "（" + path + "）");
     if (!json || (json.code !== undefined && Number(json.code) !== 0)) {
-      if (typeof console !== "undefined" && console.log) {
-        console.log("[quanpan] resp code=" + (json && json.code) + " msg=" + (json && json.message));
-      }
       throw new Error("全盘搜索接口返回异常（" + path + "）" + (json && json.message ? "：" + json.message : ""));
     }
     return json.data;
@@ -561,10 +537,6 @@ function qpSearch(context, kw) {
     restCount += (perProvider[QP_PROVIDERS[r]] || []).length;
   }
   var totalSupported = restCount + items.length;
-
-  if (typeof console !== "undefined" && console.log) {
-    console.log("[quanpan] search kw done: items=" + items.length + " backendTotal=" + ((data && data.total != null) ? Number(data.total) : rawTotal) + " unsupported=" + unsupported);
-  }
 
   return {
     items: items,
