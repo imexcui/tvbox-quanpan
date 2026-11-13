@@ -1,0 +1,80 @@
+name: update
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build spider & config
+        env:
+          REPO: imexcui/tvbox-quanpan
+        run: python build.py
+
+      - name: Publish to private gist (preserve quark cookie)
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+        run: |
+          python - <<'PY'
+          import json, os, re, urllib.request
+
+          tok = os.environ['GIST_TOKEN']
+          gid = os.environ['GIST_ID']
+          api = 'https://api.github.com'
+          hdr = {'Authorization': 'token ' + tok,
+                 'Accept': 'application/vnd.github+json',
+                 'User-Agent': 'tvbox-update'}
+
+          def req(url, method='GET', data=None):
+              r = urllib.request.Request(url, method=method,
+                                         headers=hdr,
+                                         data=json.dumps(data).encode() if data else None)
+              with urllib.request.urlopen(r, timeout=30) as resp:
+                  return json.loads(resp.read().decode())
+
+          gist = req(f'{api}/gists/{gid}')
+          old_spider = gist['files']['quanpan_spider.js']['content']
+          m = re.search(r'quark_cookie: "([^"]*)"', old_spider)
+          assert m and m.group(1), 'no quark cookie found in gist spider'
+          cookie = m.group(1)
+
+          new_spider = open('quanpan_spider.js', encoding='utf-8').read()
+          anchor = '  quark_cookie: "",'
+          assert new_spider.count(anchor) == 1
+          new_spider = new_spider.replace(anchor, '  quark_cookie: "%s",' % cookie)
+
+          stable = f'https://gist.githubusercontent.com/imexcui/{gid}/raw/quanpan_spider.js'
+          cfg = open('aiwex_quanpan.json', encoding='utf-8').read()
+          jsd = 'https://cdn.jsdelivr.net/gh/imexcui/tvbox-quanpan@main/quanpan_spider.js'
+          jsd2 = 'https://cdn.jsdelivr.net/gh/imexcui/tvbox-quanpan/quanpan_spider.js'
+          cfg = cfg.replace(jsd, stable).replace(jsd2, stable)
+          assert stable in cfg, 'spider url rewrite failed'
+          json.loads(cfg)
+
+          req(f'{api}/gists/{gid}', 'PATCH', {'files': {
+              'quanpan_spider.js': {'content': new_spider},
+              'aiwex_quanpan.json': {'content': cfg},
+          }})
+          print('gist updated: spider (cookie kept) + aiwex_quanpan.json (101 sites)')
+          PY
+
+      - name: Commit rebuilt files to fork (cookie-free)
+        run: |
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add quanpan_spider.js aiwex_quanpan.json aiwex.json
+          if git diff --cached --quiet; then echo "no changes"; else git commit -m "auto: refresh aiwex sources" && git push; fi
