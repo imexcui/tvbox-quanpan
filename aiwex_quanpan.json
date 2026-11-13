@@ -1000,7 +1000,7 @@
       "key": "QuanPan4K",
       "name": "🌸 全盘搜4K（夸克/百度/UC/115）",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/<你的GitHub用户名>/<仓库名>/quanpan_spider.js",
+      "api": "https://cdn.jsdelivr.net/gh/imexcui/tvbox-quanpan@main/quanpan_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
