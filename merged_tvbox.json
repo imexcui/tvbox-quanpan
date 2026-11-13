@@ -1341,7 +1341,7 @@
       "key": "QuanPan4K",
       "name": "🌸全盘搜｜夸克4K",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/tlwj01/tvbox-quanpan@main/quanpan_spider.js",
+      "api": "https://cdn.jsdelivr.net/gh/imexcui/tvbox-quanpan@main/quanpan_spider.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
