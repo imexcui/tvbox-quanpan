@@ -24,6 +24,9 @@ jobs:
           REPO: imexcui/tvbox-quanpan
         run: python build.py
 
+      - name: Apply dead-link filter patch
+        run: python patch_deadlink_filter.py
+
       - name: Publish to private gist (preserve quark cookie)
         env:
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
