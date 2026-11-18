@@ -613,6 +613,51 @@ function shapeSearchItems(keyword, items) {
 
 // ---------- 5. 核心入口：home / search ----------
 
+''
+// ---------- 死链过滤（搜索时预校验，带缓存） ----------
+var QP_ALIVE_CHECK_BUDGET = 40;
+var QP_ALIVE_KEEP = 20;
+var QP_ALIVE_TTL = 6 * 3600 * 1000;
+
+function shareAliveCheck(ref, context) {
+  try {
+    if (ref.provider === "quark") {
+      quarkToken(ref.shareId, ref.passcode, quarkCookie(context));
+      return true;
+    }
+    if (ref.provider === "uc") {
+      ucApi("share/sharepage/token?pr=UCBrowser&fr=pc", { pwd_id: ref.shareId, passcode: ref.passcode || "" });
+      return true;
+    }
+    return true;
+  } catch (_) { return false; }
+}
+
+function filterDeadShares(items, context) {
+  var out = [], kept = 0, budget = QP_ALIVE_CHECK_BUDGET;
+  for (var i = 0; i < items.length; i++) {
+    var it = items[i];
+    var ref = (it && it.ref) || {};
+    var prov = String(ref.provider || "");
+    if (prov !== "quark" && prov !== "uc") { out.push(it); kept++; continue; }
+    if (kept >= QP_ALIVE_KEEP || budget <= 0) { out.push(it); kept++; continue; }
+    var key = prov + "-" + ref.shareId;
+    var c = __CACHE["alive-" + key];
+    var alive;
+    if (c && Number(c.expires || 0) > Date.now()) {
+      alive = !!c.alive;
+    } else {
+      budget--;
+      alive = shareAliveCheck(ref, context);
+      __CACHE["alive-" + key] = { alive: alive, expires: Date.now() + QP_ALIVE_TTL };
+    }
+    if (!alive) continue;
+    out.push(it);
+    kept++;
+  }
+  return out;
+}
+''
 function __hawk_home(params, context) {
   try {
     var data = qpApi(context, "GET", "/api/hot-realtime");
@@ -662,6 +707,7 @@ function __hawk_search(params, context) {
 
   var r = qpSearch(context, kw);
   var shaped = shapeSearchItems(kw, r.items);
+  try { shaped = filterDeadShares(shaped, context); } catch (_) {}
   return { items: shaped, page: page };
 }
 
