@@ -613,7 +613,7 @@ function shapeSearchItems(keyword, items) {
 
 // ---------- 5. 核心入口：home / search ----------
 
-''
+
 // ---------- 死链过滤（搜索时预校验，带缓存） ----------
 var QP_ALIVE_CHECK_BUDGET = 40;
 var QP_ALIVE_KEEP = 20;
@@ -657,7 +657,7 @@ function filterDeadShares(items, context) {
   }
   return out;
 }
-''
+
 function __hawk_home(params, context) {
   try {
     var data = qpApi(context, "GET", "/api/hot-realtime");
